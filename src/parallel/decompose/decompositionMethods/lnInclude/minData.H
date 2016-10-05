@@ -1,0 +1,1 @@
+../decompositionMethod/minData.H

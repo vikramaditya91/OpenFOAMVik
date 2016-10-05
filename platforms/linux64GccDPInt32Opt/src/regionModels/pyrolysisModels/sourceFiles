@@ -1,0 +1,6 @@
+SOURCE = \
+pyrolysisModel/pyrolysisModel.C \
+pyrolysisModel/pyrolysisModelNew.C \
+reactingOneDim/reactingOneDim.C \
+noPyrolysis/noPyrolysis.C \
+pyrolysisModel/pyrolysisModelCollection.C 

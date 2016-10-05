@@ -1,0 +1,3 @@
+SOURCE = \
+genericFvPatchField/genericFvPatchFields.C \
+genericPointPatchField/genericPointPatchFields.C 

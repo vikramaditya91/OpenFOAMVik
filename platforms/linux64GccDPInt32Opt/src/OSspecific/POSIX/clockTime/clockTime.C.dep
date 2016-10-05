@@ -1,0 +1,5 @@
+$(OBJECTS_DIR)/clockTime/clockTime.C.dep: \
+clockTime/clockTime.C \
+clockTime/clockTime.H \
+
+

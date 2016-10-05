@@ -1,0 +1,5 @@
+em = .
+edgeMeshFormats = $(em)/edgeMeshFormats
+eem = $(em)/extendedEdgeMesh
+efm = $(eem)/extendedFeatureEdgeMesh
+LIB = $(FOAM_LIBBIN)/libedgeMesh

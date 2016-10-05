@@ -1,0 +1,4 @@
+SOURCE = \
+adjointOutletPressure/adjointOutletPressureFvPatchScalarField.C \
+adjointOutletVelocity/adjointOutletVelocityFvPatchVectorField.C \
+adjointShapeOptimizationFoam.C 

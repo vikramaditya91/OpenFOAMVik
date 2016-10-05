@@ -1,0 +1,53 @@
+# 1 "Make/options"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 8 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+
+# 17 "/usr/include/stdc-predef.h" 3 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 8 "<command-line>" 2
+# 1 "Make/options"
+EXE_LIBS = -lautoMesh -lbarotropicCompressibilityModel -lsolidThermo -lcompressibleTransportModels -lfluidThermophysicalModels -lblockMesh -lchemistryModel -lcoalCombustion -lcompressibleTurbulenceModels -lconversion -ldecompositionMethods -ldistributed -ldistributionModels -lDSMC -ldynamicFvMesh -ldynamicMesh -ledgeMesh -lengine -lfieldFunctionObjects -lfileFormats -lfiniteVolume -lfoamCalcFunctions -lforces -lfvMotionSolvers -lgenericPatchFields -lincompressibleTransportModels -lincompressibleTurbulenceModels -linterfaceProperties -lIOFunctionObjects -ljobControl -llagrangian -llagrangianIntermediate -llaminarFlameSpeedModels -lliquidMixtureProperties -lliquidProperties -lmeshTools -lmolecularMeasurements -lmolecule -lODE -lOpenFOAM -lpotential -lradiationModels -lrandomProcesses -lreactionThermophysicalModels -lreconstruct -lsampling -lSLGThermo -lsolidMixtureProperties -lsolidParticle -lsolidProperties -lspecie -lsurfaceFilmModels -lsurfMesh -lsystemCall -lthermophysicalFunctions -ltopoChangerFvMesh -ltriSurface -lturbulenceModels -ltwoPhaseProperties -lutilityFunctionObjects

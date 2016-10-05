@@ -1,0 +1,2 @@
+solidBodyMotionFunctions = solidBodyMotionFvMesh/solidBodyMotionFunctions
+LIB = $(FOAM_LIBBIN)/libdynamicFvMesh

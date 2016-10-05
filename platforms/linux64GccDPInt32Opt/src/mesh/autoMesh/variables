@@ -1,0 +1,4 @@
+autoHexMesh = autoHexMesh
+autoHexMeshDriver = $(autoHexMesh)/autoHexMeshDriver
+meshMover = $(autoHexMesh)/externalDisplacementMeshMover
+LIB = $(FOAM_LIBBIN)/libautoMesh

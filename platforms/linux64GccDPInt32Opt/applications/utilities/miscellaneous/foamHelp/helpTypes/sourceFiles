@@ -1,0 +1,6 @@
+SOURCE = \
+helpType/helpType.C \
+helpType/helpTypeNew.C \
+helpBoundary/helpBoundary.C \
+helpFunctionObject/helpFunctionObject.C \
+doxygenXmlParser/doxygenXmlParser.C 

@@ -1,0 +1,2 @@
+SOURCE = \
+thermoFoam.C 
