@@ -28,10 +28,6 @@
 * [[http://www.OpenFOAM.org/bugs][Reporting bugs in OpenFOAM]]
 * [[http://www.openfoam.org/contact][Contacting the OpenFOAM Foundation]]
 
-
-
-
-
-
-
-
+1) icoUncoupledKineticParcelSRFFoam
+A Lagrangian particle tracker for single rotating frames of reference i.e pimpleFoam
+The icoUncoupledKineticParcelFoam solver available in Open∇FOAM® Build: 3.0.1-d8a290b55d28, is not able to handle the forces originating from the rotating frame forces (SRFForce) because it was made for geometries in a stationary reference frame. However, since the geometry is rotating here because the SRF or the single rotating frame solvers were used, a few corrections had to made. The corrections made would ensure that the resulting velocity and the position of the particle is in accordance with the rotating frame i.e the particle’s position and velocity would be output in terms of relative velocity and relative positions.
