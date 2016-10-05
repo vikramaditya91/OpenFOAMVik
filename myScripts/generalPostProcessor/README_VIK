@@ -1,0 +1,6 @@
+This is a postprocessor which can run the functions listed in the controlDict
+file after simulation has been run. This was useful for me to average the
+pressure across the slices, for which I used the swakExpression listed in controlDict
+
+I have listed an example controlDict here which you can use in case you want
+to use it

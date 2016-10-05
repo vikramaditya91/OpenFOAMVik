@@ -1,0 +1,303 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  3.0.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+	version 2.0;
+	format ascii;
+	class dictionary;
+	location "system";
+	object controlDict;
+}
+/*---------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+interval 5;
+application UserSolver;
+
+startFrom latestTime;
+
+startTime	-0.03;
+
+stopAt endTime;
+
+endTime	0.0308;
+
+
+purgeWrite	0;
+
+writeFormat	binary;
+
+writeControl adjustableRunTime;
+writeInterval 1e-4;
+writePrecision	15;
+
+writeCompression	uncompressed;
+
+timeFormat	general;
+
+timePrecision	15;
+
+graphFormat	raw;
+
+runTimeModifiable	yes;
+
+adjustTimeStep	on;
+
+maxCo 0.9;
+
+maxDelta   0.0005;
+
+deltaT 0.0001;
+
+libs (
+ "libgroovyBC.so"
+"libsimpleFunctionObjects.so"
+"libsimpleSwakFunctionObjects.so"
+);
+
+functions {
+      pressurreAvg1
+    {
+      type swakExpression;
+        valueType surface;
+        surfaceName plane1;
+        surface {
+            type plane;
+            basePoint       (1e-4 1e-4 1e-4);
+            normalVector    (0 0 1);
+            interpolate false;
+        }
+        verbose true;
+        expression "p";
+        accumulations (
+            min
+            max
+            weightedAverage
+        );
+
+        outputControlMode timeStep;
+	outputInterval 1;
+    }
+
+      pressurreAvg2
+    {
+      type swakExpression;
+        valueType surface;
+        surfaceName plane2;
+        surface {
+            type plane;
+            basePoint       (1e-4 1e-4 1e-4);
+            normalVector    (1 0 0);
+            interpolate false;
+        }
+        verbose true;
+        expression "p";
+        accumulations (
+            min
+            max
+            weightedAverage
+        );
+
+outputControlMode timeStep;
+	outputInterval 1;
+
+    }
+
+
+      pressurreAvg3
+    {
+      type swakExpression;
+        valueType surface;
+        surfaceName plane3;
+        surface {
+            type plane;
+            basePoint       (0.01 0 0);
+            normalVector    (1 0 0);
+            interpolate false;
+        }
+        verbose true;
+        expression "p";
+        accumulations (
+            min
+            max
+            weightedAverage
+        );
+outputControlMode timeStep;
+	outputInterval 1;
+
+    }
+
+
+      pressurreAvg4
+    {
+      type swakExpression;
+        valueType surface;
+        surfaceName plane4;
+        surface {
+            type plane;
+            basePoint       (-5e-3 0 0);
+            normalVector    (1 0 0);
+            interpolate false;
+        }
+        verbose true;
+        expression "p";
+        accumulations (
+            min
+            max
+            weightedAverage
+        );
+
+outputControlMode timeStep;
+	outputInterval 1;
+    }
+
+
+      pressurreAvg5
+    {
+      type swakExpression;
+        valueType surface;
+        surfaceName plane5;
+        surface {
+            type plane;
+            basePoint       (0 0 0);
+            normalVector    (0 -0.43388 0.90097);
+            interpolate false;
+        }
+        verbose true;
+        expression "p";
+        accumulations (
+            min
+            max
+            weightedAverage
+        );
+outputControlMode timeStep;
+	outputInterval 1;
+    }
+
+
+  /*    pressureOnPatchAve
+    {
+        type averageValue;
+        functionObjectLibs ("libaverageValue.so");
+	patches (INLET);
+        outputControl timeStep;
+        fields (p);
+    }
+  
+  */
+    /*
+ fieldAverage1
+    {
+        type            fieldAverage;
+        functionObjectLibs ( "libfieldFunctionObjects.so" );
+        enabled         true;
+          cleanRestart        true;
+        outputControl   timeStep;
+//        outputControl   outputTime;
+        outputInterval  1;
+        fields
+        (
+            U
+            {
+                mean        on;
+                prime2Mean  on;
+                base        time;
+            }
+
+            p
+            {
+                mean        on;
+                prime2Mean  on;
+                base        time;
+            }
+        );
+    }
+  */
+
+  /*
+planeAverageAdvectionZ
+{
+    type swakExpression;
+    outputControlMode timeStep;
+    outputInterval 1;
+    valueType surface;
+    surfaceName testPlane;
+    surface {
+        type plane;
+        basePoint (-0.005 0.0 0.0);
+        normalVector (1 0 0);
+        interpolate true;
+    };
+    verbose true;
+    expression "-UMean.z/UMean.x*gradUMeanX.z";
+    accumulations (weightedAverage);
+}
+
+
+
+
+pressureProbes 
+    { 
+        type            probes; 
+        functionObjectLibs ("libsampling.so"); 
+        outputControl   timeStep; 
+        outputInterval  1;
+//writePrecision  10;
+//timeFormat general;
+//timePrecision 10;
+        probeLocations 
+        (  
+ 	    ( 0.0252227923307109 0.0926074837259595 0.0266019368490095 ) 
+            ( 0.0112940662140464 0.0916666616315897 0.0308079678427057 )         ); 
+        fields 
+        ( 
+            p 
+        ); 
+   }
+
+
+forces_DRILL_BIT 
+{
+type forces;
+functionObjectLibs ("libforces.so");
+outputControl timeStep;
+outputInterval 1; 
+patches (".*DRILL_BIT.*");
+// pname p;
+// Uname U;
+rhoName rhoInf;
+log true;
+rhoInf 998; 
+CofR (0 0 0);
+}
+
+
+
+    pressureAve
+    {
+        type averageValue;
+        functionObjectLibs ("libaverageValue.so");
+        patches (INLET);
+        outputControl timeStep;
+        fields (p);
+    }
+
+
+	minMaxU
+	{
+		type	fieldMinMax;
+		functionObjectLibs ( "libfieldFunctionObjects.so" ); 
+		outputControl   timeStep;
+        	outputInterval  1; 	
+		fields
+		(
+			Urel
+		);
+	}
+
+  */
+}
