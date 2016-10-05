@@ -1,0 +1,5 @@
+simpleFoamResidual.C
+
+compatibilityFvPatchFields/turbulentIntensityKineticEnergyInlet/turbulentIntensityKineticEnergyInletFvPatchSymmTensorField.C
+
+EXE = $(FOAM_USER_APPBIN)/simpleFoamResidual

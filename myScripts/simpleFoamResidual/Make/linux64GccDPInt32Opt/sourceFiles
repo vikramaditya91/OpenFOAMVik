@@ -1,0 +1,3 @@
+SOURCE = \
+simpleFoamResidual.C \
+compatibilityFvPatchFields/turbulentIntensityKineticEnergyInlet/turbulentIntensityKineticEnergyInletFvPatchSymmTensorField.C 

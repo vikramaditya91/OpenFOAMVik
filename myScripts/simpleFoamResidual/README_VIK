@@ -1,0 +1,2 @@
+This is a postprocessor as well and finds the residuals as a field. Only works
+for steady state calculation on SRFSimpleFoam results
